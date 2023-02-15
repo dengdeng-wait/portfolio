@@ -1,0 +1,192 @@
+@charset 'UTF-8';
+
+%border-style{
+    border: 0;
+}
+%box-style{
+    margin: 0;
+    padding: 0;
+}
+%block-style{
+    display: block;
+}
+%list-style{
+    list-style: none;
+}
+%box-sizing{
+    box-sizing:border-box;
+}
+%vertical-mid{
+    vertical-align: middle;
+}
+//body에 배경색이 있을 때 //사용법 @include mw-background(color-argument);
+@mixin mw-background($color) {
+    @at-root #{if(&, 'body#{&}', 'body')} {
+        background-color: $color;
+        -webkit-text-size-adjust:none;
+    }
+}
+//v-prefix 생성
+$prefix-list: webkit, moz, ms, o;
+@mixin auto-prefix($name, $value){
+    @each $prefix in $prefix-list {
+        -#{$prefix}-#{$name}: $value;
+    } 
+    #{$name}: $value;
+}
+//font style 선언 
+@mixin font-style($size: false, $color: false, $weight: false, $style: false, $lh: false) {
+    font-family: 'notokr','Malgun Gothic','Apple SD Gothic Neo',Dotum,sans-serif;
+    @if $size { font-size: $size; }
+    @if $color { color: $color; }
+    @if $weight { font-weight: $weight; }
+    @if $style { font-style: $style; }
+    @if $lh { line-height: $lh; }
+}
+//박스 outline 설정
+@mixin reset-box-outline{
+    border: 0;
+    outline:0;
+}
+@mixin apply-style($reset-style...){
+    @each $styles in $reset-style{
+        @extend %#{$styles};
+    }
+}
+@mixin other-reset($tag...){
+    @each $value in $tag {
+        #{$value} {
+            @if $value == html{
+                height: 100%;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+            @else if $value == body{
+                height: 100%;
+                background: #fff;
+                -webkit-text-size-adjust:none;
+                -webkit-touch-callout:none;
+                @include apply-style("box-style", "box-sizing");
+                @include font-style(15px, null, normal, normal, 1.5);
+            }
+            @else if $value == img{
+                @include apply-style("border-style", "vertical-mid");
+            }
+            @else if ($value == li) or ($value == ol) or ($value == ul){
+                @include apply-style("box-style", "list-style");
+            }
+            @else if $value == blockquote{
+                quotes:none;
+            }
+            @else if $value == a{
+                color: #000;text-decoration: none;text-overflow: ellipsis;
+                &:active,&:hover,&:link{
+                    text-decoration:none
+                }
+            }
+            @else if $value == textarea{
+                resize: none;-webkit-appearance: none;-webkit-border-radius: 0;
+                @include apply-style("box-style");
+                &:focus{
+                    outline: 0;
+                }
+            }
+            @else if $value == table{
+                width: 100%;border-spacing: 0;border-collapse: collapse;
+                @include apply-style("box-style");
+            }
+            @else if ($value == button) or ($value == input){
+                appearance: none;-webkit-border-radius: 0;border-radius: 0;border-width: 0;background: 0 0;outline: 0;cursor: pointer;
+                @include apply-style("box-style");
+                @include font-style(inherit,null,normal,normal,null);
+                &:focus{
+                    outline: 0;
+                }
+            }
+            @else if $value == h{
+                @at-root %font_style{
+                    -webkit-font-smoothing: subpixel-antialiased;
+                    @include font-style(null,null,700,normal,null);
+                }
+                $list:h1,h2,h3,h4,h5,h6;
+                @each $tag in $list{
+                    @at-root #{$tag}{
+                        @extend %font_style;
+                        @include apply-style("box-style");
+                    }
+                }
+            }
+            @else if $value == article{
+                @include apply-style("box-style", "block-style");
+            }
+            @else if $value == aside{
+                @include apply-style("box-style", "block-style");
+            }
+            @else if $value == audio{
+                @include apply-style("box-style");
+            }
+            @else if $value == canvas{
+                @include apply-style("box-style");
+            }
+            @else if ($value == dl) or ($value == dt) or ($value == dd){
+                @include apply-style("box-style");
+            }
+            @else if $value == p{
+                @include apply-style("box-style");
+            }
+            @else if $value == fieldset {
+                @include apply-style("box-style", "border-style");
+            }
+            @else if $value == figcaption {
+                @include apply-style("box-style", "block-style");
+            }
+            @else if $value == footer {
+                @include apply-style("box-style", "block-style");
+            }
+            @else if $value == header {
+                @include apply-style("box-style", "block-style");
+            }
+            @else if $value == form {
+                @include apply-style("box-style");
+            }
+            @else if $value == hgroup{
+                @include apply-style("box-style", "block-style");
+            }
+            @else if ($value == legend) or ($value == caption){
+                overflow: hidden;width: 1px;height: 1px;color: transparent;
+                @include apply-style("box-style");
+            }
+            @else if $value == menu{
+                @include apply-style("box-style", "block-style");
+            }
+            @else if $value == figure{
+                @include apply-style("box-style", "block-style");
+            }
+            @else if $value == nav{
+                @include apply-style("box-style", "block-style");
+            }
+            @else if $value == section{
+                @include apply-style("box-style", "block-style");
+            }
+            @else if $value == video{
+                @include apply-style("box-style", "block-style");
+            }
+            @else if ($value == th) or ($value == td){
+                @include apply-style("box-style");
+            }
+            @else if $value == address{
+                @include apply-style("box-style", "block-style");
+            }
+            @else if ($value == address) or ($value == caption) or ($value == cite) or ($value == code) or ($value == dfn) or ($value == em) or ($value == var) or ($value == i){
+                @include font-style(null,null,400,normal,null);
+            }
+        }
+    }
+}
+.blind, .skip {
+    overflow: hidden;position: absolute;clip: rect(0 0 0 0);width: 1px;height: 1px;margin: -1px;z-index: -1;opacity: 0;
+}
+
+//필요한 해당 태그가 있다면 아래와 같이 추가합니다. 각 태그 별로 reset 스타일 노출
+//원하는 리셋이 없다면 @mixin other-reset 원하는 태그 넣어서 만들어줍니다.
+//h1~h6은 "h"로 통일한다.
+@include other-reset("html","body","div","h","em","button","dl","dt","dd","p","img","ul","ol","li","a","caption","hr","legend","textarea","table","input","article","aside","footer","header","menu","nav","section","form","address");

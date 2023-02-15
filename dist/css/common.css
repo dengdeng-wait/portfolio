@@ -1,0 +1,275 @@
+img {
+  border: 0;
+}
+
+address, form, section, nav, menu, header, footer, aside, article, input, table, textarea, legend, caption, li, ol, ul, p, dd, dt, dl, button, h6, h5, h4, h3, h2, h1, body {
+  margin: 0;
+  padding: 0;
+}
+
+address, section, nav, menu, header, footer, aside, article {
+  display: block;
+}
+
+li, ol, ul {
+  list-style: none;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.blind, .skip {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  z-index: -1;
+  opacity: 0;
+}
+
+html {
+  height: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  height: 100%;
+  background: #fff;
+  -webkit-text-size-adjust: none;
+  -webkit-touch-callout: none;
+  font-family: "notokr", "Malgun Gothic", "Apple SD Gothic Neo", Dotum, sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+h6, h5, h4, h3, h2, h1 {
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-family: "notokr", "Malgun Gothic", "Apple SD Gothic Neo", Dotum, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+em {
+  font-family: "notokr", "Malgun Gothic", "Apple SD Gothic Neo", Dotum, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0;
+  border-width: 0;
+  background: 0 0;
+  outline: 0;
+  cursor: pointer;
+  font-family: "notokr", "Malgun Gothic", "Apple SD Gothic Neo", Dotum, sans-serif;
+  font-size: inherit;
+  font-weight: normal;
+  font-style: normal;
+}
+button:focus {
+  outline: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  text-overflow: ellipsis;
+}
+a:active, a:hover, a:link {
+  text-decoration: none;
+}
+
+caption {
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  color: transparent;
+}
+
+legend {
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  color: transparent;
+}
+
+textarea {
+  resize: none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+textarea:focus {
+  outline: 0;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0;
+  border-width: 0;
+  background: 0 0;
+  outline: 0;
+  cursor: pointer;
+  font-family: "notokr", "Malgun Gothic", "Apple SD Gothic Neo", Dotum, sans-serif;
+  font-size: inherit;
+  font-weight: normal;
+  font-style: normal;
+}
+input:focus {
+  outline: 0;
+}
+
+h1 {
+  position: relative;
+  font-size: 0.8rem;
+  padding: 20px 20px 5px 20px;
+}
+
+.slider_opacity {
+  width: 100%;
+}
+.slider_opacity .slider_list {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.slider_opacity .slider_list .slider_item {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.slider_opacity .slider_list .slider_item:nth-child(odd) {
+  background-color: #8e44ad;
+}
+.slider_opacity .slider_list .slider_item:nth-child(even) {
+  background-color: #3498db;
+}
+.slider_opacity .slider_list .showing {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slider_move {
+  width: 100%;
+}
+.slider_move .slider_list {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+.slider_move .slider_list .slider_item {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  opacity: 0;
+}
+.slider_move .slider_list .slider_item:nth-child(odd) {
+  background-color: #8e44ad;
+}
+.slider_move .slider_list .slider_item:nth-child(even) {
+  background-color: #3498db;
+}
+.slider_move .slider_list .showing {
+  opacity: 1;
+  z-index: 1;
+}
+
+.name {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+.tabs {
+  width: 100%;
+}
+.tabs .tab-menu {
+  display: flex;
+  margin: 0 10px;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #ddd;
+}
+.tabs .tab-menu li {
+  position: relative;
+  flex: 1;
+  font-size: 1rem;
+  text-align: center;
+}
+.tabs .tab-menu li button {
+  display: block;
+  width: 100%;
+  padding: 14px 10px;
+  line-height: 1;
+  font-weight: bold;
+}
+.tabs .tab-menu li:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 1rem;
+  margin-top: -0.5rem;
+  background-color: #ddd;
+}
+.tabs .tab-menu li:first-child:before {
+  display: none;
+}
+.tabs .tab-cont {
+  margin: 0 10px;
+  padding: 15px 15px 10px 15px;
+  border-bottom: 1px solid #ddd;
+}
+.tabs .tab-cont article h2 {
+  font-size: 2.5rem;
+  color: #d2d2d2;
+}
+.tabs .tab-cont article ul li {
+  margin-bottom: 10px;
+}
+.tabs .tab-cont article ul li strong, .tabs .tab-cont article ul li span {
+  display: inline-block;
+  padding-right: 10px;
+}
