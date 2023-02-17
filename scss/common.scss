@@ -5,6 +5,7 @@
 //common
 $c-black: #333;
 $c-grey: #ddd;
+$c-grey2: #d2d2d2;
 
 h1{
   position: relative;
@@ -94,11 +95,12 @@ h1{
     margin: 0 10px;
     border-top: 1px solid $c-black;
     border-bottom: 1px solid $c-grey;
-    li{
+    > li{
       position: relative;
       flex: 1;
       font-size: 1rem;
       text-align: center;
+      transition: all 0.5s;
       button{
         display: block;
         width: 100%;
@@ -107,7 +109,7 @@ h1{
         font-weight: bold;
       }
     }
-    li:before{
+    > li:before{
       content: "";
       position: absolute;
       top: 50%;
@@ -117,25 +119,37 @@ h1{
       margin-top: -0.5rem;
       background-color: $c-grey;
     }
-    li:first-child:before{display: none;}
+    > li:first-child:before{display: none;}
+    > li.active{
+      background-color: $c-black;
+        button{
+          color: white;
+        }
+    }
   }
   .tab-cont{
     margin: 0 10px;
     padding: 15px 15px 10px 15px;
     border-bottom: 1px solid $c-grey;
-    article{
-      h2{
-        font-size: 2.5rem;
-        color: #d2d2d2;
-      }
-      ul{
-        li{margin-bottom: 10px;
-          strong, span{
-            display: inline-block;
-            padding-right: 10px;
+    > li{
+      display: none;
+      article{
+        h2{
+          font-size: 2.5rem;
+          color: #d2d2d2;
+        }
+        ul{
+          li{margin-bottom: 10px;
+            strong, span{
+              display: inline-block;
+              padding-right: 10px;
+            }
           }
         }
       }
+    }
+    > li.active{
+      display: block;
     }
   }
 }

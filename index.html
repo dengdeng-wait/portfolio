@@ -8,7 +8,7 @@
 </head>
 <body>
   <h1>Portfolo - Ver <span class="version"></span><strong class="name">C.W.G</strong></h1>
-  <section class="tabs" data-portfolio-type="portfolioDefault">
+  <section class="tabs tabs1" data-portfolio-type1="portfolioDefault">
     <ul class="tab-menu" data-year1="portfolioYear">
       <!-- tab example 
         <li><button class="btn">2022</button></li> 
@@ -145,6 +145,8 @@
         </article>
       </li>
     </ul>
+  </section>
+  <section class="tabs tabs2" data-portfolio-type2="portfolioDefault">
     <ul class="tab-menu" data-year2="portfolioYear"></ul>
     <ul class="tab-cont" data-contents2="portfolioContents">
       <li>
@@ -331,6 +333,8 @@
         </article>
       </li>
     </ul>
+  </section>
+  <section class="tabs tabs3" data-portfolio-type3="portfolioDefault">
     <ul class="tab-menu" data-year3="portfolioYear"></ul>
   </section>
   <script src="./dist/js/common.js"></script>
@@ -360,11 +364,18 @@
 
     //기능 정의
     //tab
-    const tabMenu = new Tab();
-    tabMenu.init({
-      tabSec: '.tabs'
+    const tabMenu1 = new Tab();
+    tabMenu1.init({
+      tabSec: '.tabs1'
     });
-    console.log(tabMenu);
+    const tabMenu2 = new Tab();
+    tabMenu2.init({
+      tabSec: '.tabs2'
+    });
+    const tabMenu3 = new Tab();
+    tabMenu3.init({
+      tabSec: '.tabs3'
+    });
   </script>
 </body>
 </html>

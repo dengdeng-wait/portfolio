@@ -231,20 +231,21 @@ h1 {
   border-top: 1px solid #333;
   border-bottom: 1px solid #ddd;
 }
-.tabs .tab-menu li {
+.tabs .tab-menu > li {
   position: relative;
   flex: 1;
   font-size: 1rem;
   text-align: center;
+  transition: all 0.5s;
 }
-.tabs .tab-menu li button {
+.tabs .tab-menu > li button {
   display: block;
   width: 100%;
   padding: 14px 10px;
   line-height: 1;
   font-weight: bold;
 }
-.tabs .tab-menu li:before {
+.tabs .tab-menu > li:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -254,22 +255,34 @@ h1 {
   margin-top: -0.5rem;
   background-color: #ddd;
 }
-.tabs .tab-menu li:first-child:before {
+.tabs .tab-menu > li:first-child:before {
   display: none;
+}
+.tabs .tab-menu > li.active {
+  background-color: #333;
+}
+.tabs .tab-menu > li.active button {
+  color: white;
 }
 .tabs .tab-cont {
   margin: 0 10px;
   padding: 15px 15px 10px 15px;
   border-bottom: 1px solid #ddd;
 }
-.tabs .tab-cont article h2 {
+.tabs .tab-cont > li {
+  display: none;
+}
+.tabs .tab-cont > li article h2 {
   font-size: 2.5rem;
   color: #d2d2d2;
 }
-.tabs .tab-cont article ul li {
+.tabs .tab-cont > li article ul li {
   margin-bottom: 10px;
 }
-.tabs .tab-cont article ul li strong, .tabs .tab-cont article ul li span {
+.tabs .tab-cont > li article ul li strong, .tabs .tab-cont > li article ul li span {
   display: inline-block;
   padding-right: 10px;
+}
+.tabs .tab-cont > li.active {
+  display: block;
 }

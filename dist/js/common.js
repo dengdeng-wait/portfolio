@@ -296,8 +296,11 @@ class Tab {
   }
   init({ tabSec: tabEle }) {
     this.tab = document.querySelector(tabEle);
-    this.menus = this.tab.querySelectorAll('.tab-menu li');
-    this.contents = this.tab.querySelectorAll('.tab-cont li');
+    this.menus = this.tab.querySelectorAll('.tab-menu > li');
+    this.menus[0].classList.add('active');
+    if (this.menus.length == 1) this.menus[0].classList.remove('active');
+    this.contents = this.tab.querySelectorAll('.tab-cont > li');
+    this.contents[0].classList.add('active');
     this.menu();
   }
   menu() {
@@ -329,28 +332,29 @@ class Tab {
 class InsertData {
   constructor() {
     this.year = null;
-    this.title1 = null;
-    this.title2 = null;
-    this.desc1 = null;
-    this.desc2 = null;
   }
   init({ dataPortfolio: portFolioEle, dataYear: portFolioYear, dataContents: portFolioContents }) {
-    this.dataEle = document.querySelector(`[data-portfolio-type=${portFolioEle}]`);
-    this.dataEleYear1 = this.dataEle.querySelector(`[data-year1=${portFolioYear}]`);
-    this.dataEleYear2 = this.dataEle.querySelector(`[data-year2=${portFolioYear}]`);
-    this.dataEleYear3 = this.dataEle.querySelector(`[data-year3=${portFolioYear}]`);
-    this.dataEleYear4 = this.dataEle.querySelector(`[data-year4=${portFolioYear}]`);
-    this.dataEleYear5 = this.dataEle.querySelector(`[data-year5=${portFolioYear}]`);
-    this.dataEleContents1 = this.dataEle.querySelector(`[data-contents1=${portFolioContents}]`);
-    this.dataEleContents2 = this.dataEle.querySelector(`[data-contents2=${portFolioContents}]`);
-    this.yearList(3);
-    this.contentsArticle();
+    const tabsCheck = document.querySelectorAll('.tabs');
+    for (let i = 1; i < tabsCheck.length+1; i++) {
+      const ss = document.querySelector(`[data-portfolio-type${i}=${portFolioEle}]`);
+      console.log(ss[i]);
+    }
+    this.dataEle1 = document.querySelector(`[data-portfolio-type1=${portFolioEle}]`);
+    this.dataEle2 = document.querySelector(`[data-portfolio-type2=${portFolioEle}]`);
+    this.dataEle3 = document.querySelector(`[data-portfolio-type3=${portFolioEle}]`);
+    this.dataEleYear1 = this.dataEle1.querySelector(`[data-year1=${portFolioYear}]`); //22~17
+    this.dataEleYear2 = this.dataEle2.querySelector(`[data-year2=${portFolioYear}]`); //16~11
+    this.dataEleYear3 = this.dataEle3.querySelector(`[data-year3=${portFolioYear}]`); //10~나머지
+    this.dataEleContents1 = this.dataEle1.querySelector(`[data-contents1=${portFolioContents}]`); //22~17
+    this.dataEleContents2 = this.dataEle2.querySelector(`[data-contents2=${portFolioContents}]`); //16~11
+    this.yearList(3); //년도 메뉴 리스트
+    this.contentsArticle(); //상세내역
   }
   yearList(n) {
     this.year = ['2022~2021', '2020~2019', '2018~2017', '2016~2015', '2014~2013', '2012~2011', '2010~2006 이하 잡코리아 이력서 참고'];
     const arr = this.year;
     const len = arr.length;
-    console.log(len);
+    // console.log(len);
     const cnt = Math.floor(len / n) + (Math.floor(len % n) > 0 ? 1 : 0);
     const tmp = [];
 
@@ -364,13 +368,14 @@ class InsertData {
     }
   }
   contentsArticle() {
+    //year : 년도 , title : 프로젝트 이름, desc1: 포지션, desc2: 스킬
     this.year = ['2022~2021', '2020~2019', '2018~2017', '2016~2015', '2014~2013', '2012~2011', '2010~2006 이하 잡코리아 이력서 참고'];
-    this.title1 = ['하나은행 마이브런치 운영', '신한카드 플레이 운영 및 스크립트 운영 가이드 구축', '신한카드 지역화폐 운영', '신한카드 지역화폐 구축'];
-    this.title2 = ['신한카드 비대면 구축', '하나은행 개인디지털뱅킹 - 미래금융팀 운영', '하나은행 개인디지털뱅킹 - 미래금융팀 챗봇 하이 리뉴얼 ', '하나은행 개인디지털뱅킹 - 미래금융팀 챗봇 하이 개선', '현대리바트 WSI'];
-    this.title3 = ['EBS 블록체인지식커뮤니티 프로토타입', 'EBSE 재구조화', 'KB카드 리브메이트 APP리뉴얼', '대한민국 구석구석(한국관광공사) 반응형웹 구축', 'SK M&S 베네피아 경기도청, 대검찰청 구축', 'SK M&S 행복스토어 및 베네피아 헬스피아 운영', '이케아 고도화작업', 'KTH GIGA B2B 홈매니저'];
-    this.title4 = ['기상청 기상기후 빅데이터 분석 플랫폼', '키움증권 회원가입 및 하우투스탁 웹접근성고도화작업', '신한카드 스마트 리포트', 'ING생명 LSP2.0', '메트라이프 리쿠르팅', 'NH농협생명 리쿠르팅', '삼성 sericeo 및 이하 관리 관공서,기업,금융 웹 및 모바일사이트', '웅진씽크빅 북클럽투데이'];
-    this.title5 = ['SK SPSS(smart promotion support service)', '보건복지부 및 산하기관 리뉴얼(개발) 및 운영', '국립나주병원 리뉴얼', '국립목포병원 리뉴얼', '국립부곡병원 / 국립춘천병원 / 국립공주병원 / 국립재활원 / 국립소록도병원 / 국립마산병원 / 국립망향의동산관리원', '한국사이버평생교육원 이러닝 컨텐츠 표준화', '삼성사회봉사단(국문) / 삼성사회봉사단(영문)','뚜레쥬르 쇼핑몰'];
-    this.title6 = ['CJ TVING', '이데이몰', '고용노동부 yes프로젝트 청년층', '고용노동부 새일찾기 프로젝트 중장년층', '국민건강보험 심사평가원', '삼성전자서비스', 'LG전자서비스', 'LG전자서비스 모바일', '한국사이버평생교육원(웹,모바일)','쥬비스 PC & 모바일'];
+    this.title1 = ['하나은행 마이브런치 운영', '신한카드 플레이 운영 및 스크립트 운영 가이드 구축', '신한카드 지역화폐 운영', '신한카드 지역화폐 구축']; //22~21
+    this.title2 = ['신한카드 비대면 구축', '하나은행 개인디지털뱅킹 - 미래금융팀 운영', '하나은행 개인디지털뱅킹 - 미래금융팀 챗봇 하이 리뉴얼 ', '하나은행 개인디지털뱅킹 - 미래금융팀 챗봇 하이 개선', '현대리바트 WSI']; //20~19
+    this.title3 = ['EBS 블록체인지식커뮤니티 프로토타입', 'EBSE 재구조화', 'KB카드 리브메이트 APP리뉴얼', '대한민국 구석구석(한국관광공사) 반응형웹 구축', 'SK M&S 베네피아 경기도청, 대검찰청 구축', 'SK M&S 행복스토어 및 베네피아 헬스피아 운영', '이케아 고도화작업', 'KTH GIGA B2B 홈매니저']; //18~17
+    this.title4 = ['기상청 기상기후 빅데이터 분석 플랫폼', '키움증권 회원가입 및 하우투스탁 웹접근성고도화작업', '신한카드 스마트 리포트', 'ING생명 LSP2.0', '메트라이프 리쿠르팅', 'NH농협생명 리쿠르팅', '삼성 sericeo 및 이하 관리 관공서,기업,금융 웹 및 모바일사이트', '웅진씽크빅 북클럽투데이']; //16~15
+    this.title5 = ['SK SPSS(smart promotion support service)', '보건복지부 및 산하기관 리뉴얼(개발) 및 운영', '국립나주병원 리뉴얼', '국립목포병원 리뉴얼', '국립부곡병원 / 국립춘천병원 / 국립공주병원 / 국립재활원 / 국립소록도병원 / 국립마산병원 / 국립망향의동산관리원', '한국사이버평생교육원 이러닝 컨텐츠 표준화', '삼성사회봉사단(국문) / 삼성사회봉사단(영문)','뚜레쥬르 쇼핑몰']; //14~13
+    this.title6 = ['CJ TVING', '이데이몰', '고용노동부 yes프로젝트 청년층', '고용노동부 새일찾기 프로젝트 중장년층', '국민건강보험 심사평가원', '삼성전자서비스', 'LG전자서비스', 'LG전자서비스 모바일', '한국사이버평생교육원(웹,모바일)','쥬비스 PC & 모바일']; //12~11
     this.desc1 = ['퍼블리셔 PL', '퍼블리셔 팀원', '퍼블리셔 단독작업', '퍼블리셔', '디자이너'];
     this.desc2 = ['모바일', 'PC', '반응형웹', '웹접근성', '하이브리드앱(앱접근성)', 'JS', 'JQ', '태블릿'];
     
@@ -379,8 +384,8 @@ class InsertData {
     const eleListArticle1 = eleWrap1.querySelectorAll('article');
     const eleListArticle2 = eleWrap2.querySelectorAll('article');
     
+    //22~17
     for (let i = 0; i < eleListArticle1.length; i++) {
-      console.log(eleListArticle1[i]);
       eleListArticle1[i].querySelector('h2').innerText += this.year[i];
       if (i == 0) {
         const eleListLi = eleListArticle1[0].querySelectorAll('li');
@@ -485,8 +490,9 @@ class InsertData {
         });
       }
     }
+    //17~11
     for (let i = 0; i < eleListArticle2.length; i++) {
-      console.log(eleListArticle2[i]);
+      // console.log(eleListArticle2[i]);
       eleListArticle2[i].querySelector('h2').innerText += this.year[i + 3];
       if (i == 0) {
         const eleListLi = eleListArticle2[0].querySelectorAll('li');
