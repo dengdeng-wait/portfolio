@@ -38,7 +38,7 @@ const sliderOpacity = () => {
   }
 }
 
-//button click - scroll smmoth move
+//button click - scroll smooth move
 const scorllTargetMove = () => {
   const listEle = document.querySelectorAll('ul li');
 
@@ -297,10 +297,10 @@ class Tab {
   init({ tabSec: tabEle }) {
     this.tab = document.querySelector(tabEle);
     this.menus = this.tab.querySelectorAll('.tab-menu > li');
-    this.menus[0].classList.add('active');
+    if (this.menus.length > 0) this.menus[0].classList.add('active');
     if (this.menus.length == 1) this.menus[0].classList.remove('active');
     this.contents = this.tab.querySelectorAll('.tab-cont > li');
-    this.contents[0].classList.add('active');
+    if (this.contents.length > 0) this.contents[0].classList.add('active');
     this.menu();
   }
   menu() {
@@ -329,6 +329,55 @@ class Tab {
 // });
 
 //데이터 정의
+class DataSet {
+  constructor() {
+    this.wrap = null;
+    this.menuType = null;
+  }
+  init({ portfolio: secPortfolio, responseText: responseText }) {
+    this.wrap = document.querySelector(`[data-portfolio=${secPortfolio}]`);
+    this.menuType = secPortfolio; // 파라미터 네임 매칭
+    this.meuns(responseText, 3); //화면노출 메뉴 개수 지정
+    console.log(this.wrap.getElementsByClassName('tab-menu').length);
+  }
+  meuns(responseText, spliceNum) {
+    // Deserializing (String → Object)
+    let responseObject = JSON.parse(responseText);
+    
+    const portObj = responseObject.portfolio;
+    const yearArr = portObj.map(({ titles, ...rest }) => rest); // years만 반환
+    const yearValues = Object.values(yearArr);
+    const yearLen = yearArr.length;
+    //array slice : n
+    const countCut = Math.floor(yearLen / spliceNum) + (Math.floor(yearLen % spliceNum) > 0 ? 1 : 0);
+    const yearResult = [];
+
+    // JSON → HTML String
+    let menuList = '';
+    menuList += `<ul class="tab-menu">`;
+    for (let i = 0; i < countCut; i++) {
+      const menuCheck = this.wrap.querySelector('.tab-menu');
+      yearResult.push(yearValues.splice(0, spliceNum));
+      console.log(yearResult[i]);
+
+      yearResult[i].forEach(el => {
+        if (i == 0 && this.menuType.includes(0)) menuList += `<li><button class="btn">${el.years}</button></li>`;
+        if (i == 1 && this.menuType.includes(1)) menuList += `<li><button class="btn">${el.years}</button></li>`;
+        if (i == 2 && this.menuType.includes(2)) menuList += `<li><button class="btn">${el.years}</button></li>`;
+      });
+    }
+    menuList += `</ul>`;
+    
+    this.wrap.insertAdjacentHTML('afterbegin', menuList); // value - beforebegin, afterbegin, beforeend, afterend
+    // document.getElementById('content').insertAdjacentHTML('beforeend', newContent);
+    
+  }
+  contents() {
+    console.log('');
+  }
+}
+
+//데이터 정의 이전버전
 class InsertData {
   constructor() {
     this.year = null;
@@ -336,8 +385,8 @@ class InsertData {
   init({ dataPortfolio: portFolioEle, dataYear: portFolioYear, dataContents: portFolioContents }) {
     const tabsCheck = document.querySelectorAll('.tabs');
     for (let i = 1; i < tabsCheck.length+1; i++) {
-      const ss = document.querySelector(`[data-portfolio-type${i}=${portFolioEle}]`);
-      console.log(ss[i]);
+      const typeAttr = document.querySelector(`[data-portfolio-type${i}=${portFolioEle}]`);
+      console.log(typeAttr);
     }
     this.dataEle1 = document.querySelector(`[data-portfolio-type1=${portFolioEle}]`);
     this.dataEle2 = document.querySelector(`[data-portfolio-type2=${portFolioEle}]`);

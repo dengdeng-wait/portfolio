@@ -7,12 +7,26 @@
   <title>Portfolio Page C.W.G</title>
 </head>
 <body>
-  <h1>Portfolo - Ver <span class="version"></span><strong class="name">C.W.G</strong></h1>
-  <section class="tabs tabs1" data-portfolio-type1="portfolioDefault">
+  <h1>Portfolio - Ver <span class="version"></span><strong class="name">C.W.G</strong></h1>
+  <!-- json type -->
+  <section class="tabs tabs1" data-portfolio="portfolioDefault0">
+    <ul class="tab-cont" data-contents="portfolioContents0">
+      <li></li>
+    </ul>
+  </section>
+  <section class="tabs tabs2" data-portfolio="portfolioDefault1">
+    <ul class="tab-cont" data-contents="portfolioContents1">
+      <li></li>
+    </ul>
+  </section>
+  <section class="tabs tabs3" data-portfolio="portfolioDefault2">
+    <ul class="tab-cont" data-contents="portfolioContents2">
+      <li></li>
+    </ul>
+  </section>
+
+  <!-- before version <section class="tabs tabs1" data-portfolio-type1="portfolioDefault">
     <ul class="tab-menu" data-year1="portfolioYear">
-      <!-- tab example 
-        <li><button class="btn">2022</button></li> 
-      -->
     </ul>
     <ul class="tab-cont" data-contents1="portfolioContents">
       <li>
@@ -336,7 +350,12 @@
   </section>
   <section class="tabs tabs3" data-portfolio-type3="portfolioDefault">
     <ul class="tab-menu" data-year3="portfolioYear"></ul>
-  </section>
+    <ul class="tab-cont" data-contents3="portfolioContents">
+      <li></li>
+    </ul>
+  </section> -->
+
+  <script src="./dist/js/lodash.js"></script>
   <script src="./dist/js/common.js"></script>
   <script>
     /* date source
@@ -354,14 +373,6 @@
       document.querySelector('.version').innerHTML += `${verNum}`;
     });
 
-    //데이터
-    const insertData = new InsertData();
-    insertData.init({
-      dataPortfolio: 'portfolioDefault',
-      dataYear: 'portfolioYear',
-      dataContents: 'portfolioContents'
-    });
-
     //기능 정의
     //tab
     const tabMenu1 = new Tab();
@@ -376,6 +387,50 @@
     tabMenu3.init({
       tabSec: '.tabs3'
     });
+
+    //데이터 정의
+    const insertData0 = new DataSet();
+    const insertData1 = new DataSet();
+    const insertData2 = new DataSet();
+
+    const req = new XMLHttpRequest();
+
+    req.open('GET', 'data/data.json', true);
+    req.send();
+
+    req.onreadystatechange = resultProcess;
+
+    function resultProcess () {
+      // 서버 응답 완료 && 정상 응답(200)
+      if (req.readyState === XMLHttpRequest.DONE) {
+        if (req.status == 200) {
+          //console.log(req.responseText);
+          console.log(req.status);
+          insertData0.init({
+            portfolio: 'portfolioDefault0',
+            responseText: req.responseText
+          });
+          insertData1.init({
+            portfolio: 'portfolioDefault1',
+            responseText: req.responseText
+          });
+          insertData2.init({
+            portfolio: 'portfolioDefault2',
+            responseText: req.responseText
+          });
+        } else {
+          console.log('[' + req.status + ']: ' + req.statusText);
+        }
+      }
+    }
+
+    //데이터 before version
+    // const insertData = new InsertData();
+    // insertData.init({
+    //   dataPortfolio: 'portfolioDefault',
+    //   dataYear: 'portfolioYear',
+    //   dataContents: 'portfolioContents'
+    // });
   </script>
 </body>
 </html>
