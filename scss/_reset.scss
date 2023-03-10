@@ -19,6 +19,7 @@
 %vertical-mid{
     vertical-align: middle;
 }
+
 //body에 배경색이 있을 때 //사용법 @include mw-background(color-argument);
 @mixin mw-background($color) {
     @at-root #{if(&, 'body#{&}', 'body')} {
@@ -35,7 +36,7 @@ $prefix-list: webkit, moz, ms, o;
     #{$name}: $value;
 }
 //font style 선언 
-@mixin font-style($size: false, $color: false, $weight: false, $style: false, $lh: false) {
+@mixin font-style($size: false, $color: true, $weight: false, $style: false, $lh: false) {
     font-family: 'notokr','Malgun Gothic','Apple SD Gothic Neo',Dotum,sans-serif;
     @if $size { font-size: $size; }
     @if $color { color: $color; }
@@ -66,7 +67,7 @@ $prefix-list: webkit, moz, ms, o;
                 -webkit-text-size-adjust:none;
                 -webkit-touch-callout:none;
                 @include apply-style("box-style", "box-sizing");
-                @include font-style(15px, null, normal, normal, 1.5);
+                @include font-style(15px, #333, normal, normal, 1.5);
             }
             @else if $value == img{
                 @include apply-style("border-style", "vertical-mid");

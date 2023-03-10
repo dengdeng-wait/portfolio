@@ -10,19 +10,10 @@
   <h1>Portfolio - Ver <span class="version"></span><strong class="name">C.W.G</strong></h1>
   <!-- json type -->
   <section class="tabs tabs1" data-portfolio="portfolioDefault0">
-    <ul class="tab-cont" data-contents="portfolioContents0">
-      <li></li>
-    </ul>
   </section>
   <section class="tabs tabs2" data-portfolio="portfolioDefault1">
-    <ul class="tab-cont" data-contents="portfolioContents1">
-      <li></li>
-    </ul>
   </section>
   <section class="tabs tabs3" data-portfolio="portfolioDefault2">
-    <ul class="tab-cont" data-contents="portfolioContents2">
-      <li></li>
-    </ul>
   </section>
 
   <!-- before version <section class="tabs tabs1" data-portfolio-type1="portfolioDefault">
@@ -373,21 +364,6 @@
       document.querySelector('.version').innerHTML += `${verNum}`;
     });
 
-    //기능 정의
-    //tab
-    const tabMenu1 = new Tab();
-    tabMenu1.init({
-      tabSec: '.tabs1'
-    });
-    const tabMenu2 = new Tab();
-    tabMenu2.init({
-      tabSec: '.tabs2'
-    });
-    const tabMenu3 = new Tab();
-    tabMenu3.init({
-      tabSec: '.tabs3'
-    });
-
     //데이터 정의
     const insertData0 = new DataSet();
     const insertData1 = new DataSet();
@@ -423,6 +399,8 @@
         }
       }
     }
+
+    
 
     //데이터 before version
     // const insertData = new InsertData();

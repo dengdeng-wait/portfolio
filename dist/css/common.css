@@ -46,6 +46,7 @@ body {
   -webkit-touch-callout: none;
   font-family: "notokr", "Malgun Gothic", "Apple SD Gothic Neo", Dotum, sans-serif;
   font-size: 15px;
+  color: #333;
   font-weight: normal;
   font-style: normal;
   line-height: 1.5;
@@ -245,6 +246,9 @@ h1 {
   line-height: 1;
   font-weight: bold;
 }
+.tabs .tab-menu > li button:disabled {
+  color: #333;
+}
 .tabs .tab-menu > li:before {
   content: "";
   position: absolute;
@@ -272,17 +276,36 @@ h1 {
 .tabs .tab-cont > li {
   display: none;
 }
-.tabs .tab-cont > li article h2 {
-  font-size: 2.5rem;
-  color: #d2d2d2;
-}
-.tabs .tab-cont > li article ul li {
+.tabs .tab-cont > li ul.list-content li {
+  position: relative;
   margin-bottom: 10px;
 }
-.tabs .tab-cont > li article ul li strong, .tabs .tab-cont > li article ul li span {
+.tabs .tab-cont > li ul.list-content li strong, .tabs .tab-cont > li ul.list-content li span {
   display: inline-block;
   padding-right: 10px;
 }
 .tabs .tab-cont > li.active {
   display: block;
+}
+
+@media (min-width: 758px) {
+  ul.list-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  ul.list-content li {
+    flex: 1 1 40%;
+    padding-left: 10px;
+  }
+  ul.list-content li:nth-child(2n):before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 1px;
+    height: 1rem;
+    margin-top: -0.5rem;
+    background-color: #ddd;
+    border-left: #333;
+  }
 }

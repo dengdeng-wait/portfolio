@@ -300,16 +300,21 @@ class Tab {
     if (this.menus.length > 0) this.menus[0].classList.add('active');
     if (this.menus.length == 1) this.menus[0].classList.remove('active');
     this.contents = this.tab.querySelectorAll('.tab-cont > li');
+    console.log(this.contents.length);
     if (this.contents.length > 0) this.contents[0].classList.add('active');
     this.menu();
   }
   menu() {
+    /** menus가 한개인경우 i값을 받아오지 못하는 이슈 해결필요(contents 인자전달이 안됨) */
     [...this.menus].map((item, i) => {
+      if (this.menus.length == 1) item.querySelector('.btn').disabled = true;
       item.querySelector('.btn').addEventListener('click', function (e) {
+        if(this.menu.length == 1) e.stopPropagation();
         this.menus.forEach(el => {
           el.classList.remove('active');
         });
         e.target.parentElement.classList.add('active');
+        console.log(i);
         this.content(i);
       }.bind(this));
     });
@@ -318,6 +323,7 @@ class Tab {
     this.contents.forEach(el => {
       el.classList.remove('active');
     });
+    console.log(index);
     this.contents[index].classList.add('active');
   }
 }
@@ -328,38 +334,45 @@ class Tab {
 //   tabSec: '.tabs'
 // });
 
-//데이터 정의
+//데이터 정의 최종버전
 class DataSet {
   constructor() {
     this.wrap = null;
     this.menuType = null;
+    this.contents = null;
   }
+  /**
+   * 최초 호출 메서드
+   * @param {string} secPortfolio 최상위 container 의 value - html 직접입력
+   * @param {string} responseText 메뉴 년도, 컨텐츠 json
+   */
   init({ portfolio: secPortfolio, responseText: responseText }) {
     this.wrap = document.querySelector(`[data-portfolio=${secPortfolio}]`);
     this.menuType = secPortfolio; // 파라미터 네임 매칭
-    this.meuns(responseText, 3); //화면노출 메뉴 개수 지정
-    console.log(this.wrap.getElementsByClassName('tab-menu').length);
+    this.meuns(responseText, 3); //메뉴 화면노출 메뉴 개수 지정
+    this.contents = this.wrap.querySelector('.tab-cont');
+    this.content(responseText, 3); //컨텐츠 화면노출
   }
+  /**
+   * 메뉴 기능
+   * @param {string} responseText 메뉴 년도, 컨텐츠 json
+   * @param {number} spliceNum 화면 노출 메뉴 갯수(현재 3개) 
+   */
   meuns(responseText, spliceNum) {
     // Deserializing (String → Object)
     let responseObject = JSON.parse(responseText);
-    
     const portObj = responseObject.portfolio;
     const yearArr = portObj.map(({ titles, ...rest }) => rest); // years만 반환
     const yearValues = Object.values(yearArr);
     const yearLen = yearArr.length;
-    //array slice : n
-    const countCut = Math.floor(yearLen / spliceNum) + (Math.floor(yearLen % spliceNum) > 0 ? 1 : 0);
+    const countCut = Math.floor(yearLen / spliceNum) + (Math.floor(yearLen % spliceNum) > 0 ? 1 : 0); //array slice : parameter 개
     const yearResult = [];
 
     // JSON → HTML String
     let menuList = '';
     menuList += `<ul class="tab-menu">`;
     for (let i = 0; i < countCut; i++) {
-      const menuCheck = this.wrap.querySelector('.tab-menu');
       yearResult.push(yearValues.splice(0, spliceNum));
-      console.log(yearResult[i]);
-
       yearResult[i].forEach(el => {
         if (i == 0 && this.menuType.includes(0)) menuList += `<li><button class="btn">${el.years}</button></li>`;
         if (i == 1 && this.menuType.includes(1)) menuList += `<li><button class="btn">${el.years}</button></li>`;
@@ -370,10 +383,94 @@ class DataSet {
     
     this.wrap.insertAdjacentHTML('afterbegin', menuList); // value - beforebegin, afterbegin, beforeend, afterend
     // document.getElementById('content').insertAdjacentHTML('beforeend', newContent);
+
+    //기능 정의
+    //tab
+    const tabMenu1 = new Tab();
+    tabMenu1.init({
+      tabSec: '.tabs1'
+    });
+    const tabMenu2 = new Tab();
+    tabMenu2.init({
+      tabSec: '.tabs2'
+    });
+    const tabMenu3 = new Tab();
+    tabMenu3.init({
+      tabSec: '.tabs3'
+    });
     
   }
-  contents() {
-    console.log('');
+  /**
+   * 각년도별 컨텐츠
+   * @param {string} responseText 메뉴 년도, 컨텐츠 json
+   * @param {number} spliceNum 화면 노출 li 갯수(년도와 매칭 3개)
+   */
+  content(responseText, spliceNum) {
+    const contEle = this.contents;
+    // Deserializing (String → Object)
+    let responseObject = JSON.parse(responseText);
+    const portObj = responseObject.portfolio;
+    const titlesArr = portObj.map(({ years, ...rest }) => rest.titles); // titles만 반환
+    const titlesLen = titlesArr.length;
+    
+    /** dateArray 사용안하지만 foreach element for문으로 오브젝트 리스트검색용 */
+    const dataArray = (target) => {
+      target.forEach(el => {
+        for (let i = 0; i < el.length; i++) {
+          const name = el[i].name;
+          const position = el[i].position;
+          const skill = el[i].skill;
+        }
+      })
+    }
+    dataArray(titlesArr);
+
+    const countCut = Math.floor(titlesLen / spliceNum) + (Math.floor(titlesLen % spliceNum));
+    const contentResult = [];
+
+    // JSON → HTML String
+    let contentData = '';
+    contentData += `<ul class="tab-cont">`;
+    for (let i = 0; i < countCut; i++) {
+      contentResult.push(titlesArr.splice(0, spliceNum));
+      contentResult[i].forEach(el => {
+        const name = el.map(item => item.name);
+        // console.log(el.length);
+        const position = el.map(item => item.position);
+        const skill = el.map(item => item.skill);
+        if (i == 0 && this.menuType.includes(0)) {
+          contentData += `<li>`;
+          contentData += `<ul class="list-content">`;
+          for (let idx = 0; idx < el.length; idx++) {
+            contentData += `<li><strong class="title">${name[idx]}</strong><span>${position[idx]}</span><span>${skill[idx]}</span></li>`;
+          }
+          contentData += `</ul>`;
+          contentData += `</li>`;
+        }
+        if (i == 1 && this.menuType.includes(1)) {
+          contentData += `<li>`;
+          contentData += `<ul class="list-content">`;
+          for (let idx = 0; idx < el.length; idx++) {
+            contentData += `<li><strong class="title">${name[idx]}</strong><span>${position[idx]}</span><span>${skill[idx]}</span></li>`;
+          }
+          contentData += `</ul>`;
+          contentData += `</li>`;
+        }
+        if (i == 2 && this.menuType.includes(2)) {
+          contentData += `<li>`;
+          contentData += `<ul class="list-content">`;
+          for (let idx = 0; idx < el.length; idx++) {
+            contentData += `<li><strong class="title">${name[idx]}</strong><span>${position[idx]}</span><span>${skill[idx]}</span></li>`;
+          }
+          contentData += `</ul>`;
+          contentData += `</li>`;
+        }
+      });
+    }
+    contentData += `</ul>`;
+
+    this.wrap.insertAdjacentHTML('beforeend', contentData); // value - beforebegin, afterbegin, beforeend, afterend
+
   }
 }
 
