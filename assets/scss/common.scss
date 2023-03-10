@@ -27,8 +27,7 @@
   }
 }
 
-h1{position: relative; font-size: 0.8rem;padding: 20px 20px 5px 20px;}
-
+h1{position: relative; font-size: 0.8rem; padding: 20px 20px 5px 20px;}
 // slider_opacity
 .slider_opacity{
   width: 100%;
@@ -51,12 +50,12 @@ h1{position: relative; font-size: 0.8rem;padding: 20px 20px 5px 20px;}
       z-index: 0;
       opacity: 0;
       transition: all .5s ease-in-out;
-    }
-    .slider_item:nth-child(odd){
-      background-color: #8e44ad;
-    };
-    .slider_item:nth-child(even){
-      background-color: #3498db;
+      &:nth-child(odd) {
+        background-color: #8e44ad;
+      }
+      &:nth-child(even) {
+        background-color: #3498db;
+      }
     }
     .showing{
       opacity: 1;
@@ -127,18 +126,20 @@ h1{position: relative; font-size: 0.8rem;padding: 20px 20px 5px 20px;}
       button:disabled{
         color:#333
       }
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 1px;
+        height: 1rem;
+        margin-top: -0.5rem;
+        background-color: $c-grey;
+      }
+      &:first-child:before {
+        display: none;
+      }
     }
-    > li:before{
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 1px;
-      height: 1rem;
-      margin-top: -0.5rem;
-      background-color: $c-grey;
-    }
-    > li:first-child:before{display: none;}
     > li.active{
       background-color: $c-black;
         button{
@@ -173,18 +174,18 @@ h1{position: relative; font-size: 0.8rem;padding: 20px 20px 5px 20px;}
     flex-wrap: wrap;
     li{
       flex: 1 1 40%;
-      padding-left: 10px;;
-    }
-    li:nth-child(2n):before{
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 1px;
-      height: 1rem;
-      margin-top: -0.5rem;
-      background-color: $c-grey;
-      border-left: $c-black;
+      padding-left: 10px;
+      &:nth-child(2n):before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 1px;
+        height: 1rem;
+        margin-top: -0.5rem;
+        background-color: $c-grey;
+        border-left: $c-black;
+      }
     }
   }
 }
