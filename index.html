@@ -359,6 +359,7 @@
     */
 
     //version check
+    const vers = new Date().getDate() + '' + (new Date().getHours());
     const verNum = Math.abs(1);
     document.addEventListener("DOMContentLoaded", function (e) {
       document.querySelector('.version').innerHTML += `${verNum}`;
