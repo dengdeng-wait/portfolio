@@ -359,7 +359,9 @@
     */
 
     //version check
-    const vers = new Date().getDate() + '' + (new Date().getHours());
+    const fileVers = new Date().getDate() + '' + (new Date().getHours());
+    document.querySelector('link').setAttribute('href', `assets/css/common.css?ver=${fileVers}`);
+
     const verNum = Math.abs(1);
     document.addEventListener("DOMContentLoaded", function (e) {
       document.querySelector('.version').innerHTML += `${verNum}`;
