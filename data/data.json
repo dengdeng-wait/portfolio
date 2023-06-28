@@ -1,6 +1,16 @@
 {
   "portfolio": [
     {
+      "years": "2023",
+      "titles": [
+        {
+          "name": "신한마이카 현대인증 중고차 구축",
+          "position": "퍼블리셔 PL",
+          "skill": "반응형웹, JS"
+        }
+      ]
+    },
+    {
       "years": "2022~2021",
       "titles": [
         {
