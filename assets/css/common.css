@@ -248,6 +248,7 @@ h1 {
 }
 .tabs .tab-menu > li button:disabled {
   color: #333;
+  pointer-events: none;
 }
 .tabs .tab-menu > li:before {
   content: "";
