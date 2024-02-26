@@ -1,13 +1,13 @@
 {
   "portfolio": [
     {
-      "id": 2023,
-      "years": "2023~2021",
+      "id": 2024,
+      "years": "2024",
       "titles": [
         {
-          "name": "하나은행 마이데이터 합 운영",
+          "name": "하나은행 마이브런치 운영",
           "position": "퍼블리셔 PL",
-          "skill": "모바일, JS"
+          "skill": "모바일, Javascript"
         }
       ]
     },
@@ -18,32 +18,32 @@
         {
           "name": "하나은행 마이데이터 합 운영",
           "position": "퍼블리셔 PL",
-          "skill": "모바일, JS"
+          "skill": "모바일, Javascript"
         },
         {
           "name": "신한마이카 현대인증 중고차 구축",
           "position": "퍼블리셔 PL",
-          "skill": "반응형웹, JS"
+          "skill": "반응형웹, Javascript"
         },
         {
           "name": "하나은행 마이브런치 운영",
           "position": "퍼블리셔 PL",
-          "skill" : "모바일, JS"
+          "skill": "모바일, Javascript"
         },
         {
           "name": "신한카드 플레이 운영 및 스크립트 운영 가이드 구축",
           "position": "퍼블리셔 ",
-          "skill": "모바일, JS"
+          "skill": "모바일, Javascript"
         },
         {
           "name": "신한카드 지역화폐 운영",
           "position": "퍼블리셔 단독운영",
-          "skill": "모바일, JS"
+          "skill": "모바일, Javascript"
         },
         {
           "name": "신한카드 지역화폐 구축 ",
           "position": "퍼블리셔 PL",
-          "skill": "모바일, JS"
+          "skill": "모바일, Javascript"
         }
       ]
     },
@@ -54,27 +54,27 @@
         {
           "name": "신한카드 비대면 구축",
           "position": "퍼블리셔 PL",
-          "skill": "모바일, JS, JQ"
+          "skill": "모바일, Javascript, JQ"
         },
         {
           "name": "하나은행 미래금융팀 운영",
           "position": "퍼블리셔 PL",
-          "skill": "모바일, JS, JQ"
+          "skill": "모바일, Javascript, JQ"
         },
         {
           "name": "하나은행 미래금융팀 AI챗봇 하이 리뉴얼",
           "position": "퍼블리셔 PL",
-          "skill": "모바일, JS, JQ"
+          "skill": "모바일, Javascript, JQ"
         },
         {
           "name": "하나은행 미래금융팀 AI챗봇 하이 개선",
           "position": "퍼블리셔 PL",
-          "skill": "모바일, JS, JQ"
+          "skill": "모바일, Javascript, JQ"
         },
         {
           "name": "현대리바트 WSI",
           "position": "퍼블리셔 PL",
-          "skill": "모바일, JS, JQ"
+          "skill": "모바일, Javascript, JQ"
         }
       ]
     },
@@ -85,42 +85,42 @@
         {
           "name": "EBSe 리뉴얼",
           "position": "퍼블리셔 PL",
-          "skill": "반응형웹, JS, JQ"
+          "skill": "반응형웹, Javascript, JQ"
         },
         {
           "name": "EBS 블록체인커뮤니티(프로토타입)",
           "position": "퍼블리셔 PL",
-          "skill": "반응형웹, JS, JQ"
+          "skill": "반응형웹, Javascript, JQ"
         },
         {
           "name": "KB카드 리브메이트 APP리뉴얼",
           "position": "퍼블리셔",
-          "skill": "하이브리드앱(앱접근성), PC&모바일, JS, JQ"
+          "skill": "하이브리드앱(앱접근성), PC&모바일, Javascript, JQ"
         },
         {
           "name": "한국관광공사 대한민국 구석구석 리뉴얼",
           "position": "퍼블리셔 PL",
-          "skill": "반응형웹, JS, JQ"
+          "skill": "반응형웹, Javascript, JQ"
         },
         {
           "name": "SK M&S 베네피아 경기도청, 대검찰청 구축",
           "position": "퍼블리셔 단독",
-          "skill": "PC, JS, JQ"
+          "skill": "PC, Javascript, JQ"
         },
         {
           "name": "SK M&S 행복스토어 및 베네피아 헬스피아 운영",
           "position": "퍼블리셔 단독",
-          "skill": "PC, JS, JQ"
+          "skill": "PC, Javascript, JQ"
         },
         {
           "name": "이케아 쇼핑몰 고도화",
           "position": "퍼블리셔 PL",
-          "skill": "PC&모바일, JS, JQ"
+          "skill": "PC&모바일, Javascript, JQ"
         },
         {
           "name": "KTH GIGA B2B 홈매니저 구축",
           "position": "퍼블리셔 단독",
-          "skill": "반응형웹, JS, JQ"
+          "skill": "반응형웹, Javascript, JQ"
         }
       ]
     },
@@ -131,37 +131,37 @@
         {
           "name": "기상청 기상기후 빅데이터 분석플랫폼",
           "position": "퍼블리셔 단독",
-          "skill": "웹접근성, JS, JQ"
+          "skill": "웹접근성, Javascript, JQ"
         },
         {
           "name": "키움증권 회원가입 및 하우투스탁 웹접근성고도화작업",
           "position": "퍼블리셔 단독",
-          "skill": "웹접근성, JS, JQ"
+          "skill": "웹접근성, Javascript, JQ"
         },
         {
           "name": "신한카드 스마트리포트",
           "position": "퍼블리셔 단독",
-          "skill": "앱&모바일웹, JS, JQ"
+          "skill": "앱&모바일웹, Javascript, JQ"
         },
         {
           "name": "ING생명 LSP2.0(컨텐츠)",
           "position": "퍼블리셔 단독",
-          "skill": "태블릿, JS, JQ"
+          "skill": "태블릿, Javascript, JQ"
         },
         {
           "name": "메트라이프 리쿠르팅(컨텐츠)",
           "position": "퍼블리셔 단독",
-          "skill": "태블릿, JS, JQ"
+          "skill": "태블릿, Javascript, JQ"
         },
         {
           "name": "NH농협생명 리쿠르팅(컨텐츠)",
           "position": "퍼블리셔 단독",
-          "skill": "태블릿, JS, JQ"
+          "skill": "태블릿, Javascript, JQ"
         },
         {
           "name": "삼성 sericeo 및 이하 관리 관공서,기업,금융 웹 및 모바일사이트 운영",
           "position": "퍼블리셔 단독",
-          "skill": "PC&모바일, JS, JQ"
+          "skill": "PC&모바일, Javascript, JQ"
         }
       ]
     },
@@ -172,47 +172,47 @@
         {
           "name": "웅진씽크빅 북클럽투데이",
           "position": "퍼블리셔 단독",
-          "skill": "EPUB BOOK, JS, JQ"
+          "skill": "EPUB BOOK, Javascript, JQ"
         },
         {
           "name": "SK SPSS(Smart Promotion Support Service) 구축",
           "position": "퍼블리셔 단독",
-          "skill": "반응형웹, JS, JQ"
+          "skill": "반응형웹, Javascript, JQ"
         },
         {
           "name": "보건복지부 및 산하기관 리뉴얼(개발) 및 운영",
           "position": "퍼블리셔",
-          "skill": "웹접근성&모바일, JS, JQ"
+          "skill": "웹접근성&모바일, Javascript, JQ"
         },
         {
           "name": "국립나주병원 리뉴얼",
           "position": "퍼블리셔",
-          "skill": "웹접근성&모바일, JS, JQ"
+          "skill": "웹접근성&모바일, Javascript, JQ"
         },
         {
           "name": "국립목포병원 리뉴얼",
           "position": "퍼블리셔",
-          "skill": "웹접근성&모바일, JS, JQ"
+          "skill": "웹접근성&모바일, Javascript, JQ"
         },
         {
           "name": "국립부곡병원, 국립춘천병원, 국립공주병원, 국립재활원, 국립소록도병원, 국립마산병원, 국립망향의동산관리원(웹접근성 갱신)",
           "position": "퍼블리셔",
-          "skill": "웹접근성&모바일, JS, JQ"
+          "skill": "웹접근성&모바일, Javascript, JQ"
         },
         {
           "name": "한국사이버평생교육원 이러닝 컨텐츠 표준화(",
           "position": "퍼블리셔 단독",
-          "skill": "이러닝, JS, JQ"
+          "skill": "이러닝, Javascript, JQ"
         },
         {
           "name": "삼성사회봉사단(국문,영문)",
           "position": "퍼블리셔 단독",
-          "skill": "웹접근성, JS, JQ"
+          "skill": "웹접근성, Javascript, JQ"
         },
         {
           "name": "뚜레쥬르 쇼핑몰:",
           "position": "퍼블리셔 단독",
-          "skill": "웹접근성, JS, JQ"
+          "skill": "웹접근성, Javascript, JQ"
         }
       ]
     },
@@ -223,12 +223,12 @@
         {
           "name": "CJ TVING 운영",
           "position": "퍼블리셔",
-          "skill": "모바일, JS, JQ"
+          "skill": "모바일, Javascript, JQ"
         },
         {
           "name": "이데이몰(정식품)",
           "position": "퍼블리셔",
-          "skill": "PC, JS, JQ"
+          "skill": "PC, Javascript, JQ"
         },
         {
           "name": "고용노동부 yes프로젝트 청년층",
