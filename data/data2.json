@@ -5,9 +5,9 @@
       "years": "2025",
       "titles": [
         {
-          "name": "하나은행 아이부자자 운영",
+          "name": "하나은행 아이부자 운영",
           "position": "PM 및 퍼블리셔 PL",
-          "skill": "모바일, Javascript, REACT.JS, NEXT.JS, Styled-components, TypeScript, SASS, GIT"
+          "skill": "모바일, REACT.JS, NEXT.JS, Styled-components, Javascript, TypeScript, SASS, GIT"
         }
       ]
     },
@@ -16,9 +16,9 @@
       "years": "2024",
       "titles": [
         {
-          "name": "하나은행 아이부자자 운영",
+          "name": "하나은행 아이부자 운영",
           "position": "PM 및 퍼블리셔 PL",
-          "skill": "모바일, Javascript, REACT.JS, NEXT.JS, Styled-components, TypeScript, SASS, GIT"
+          "skill": "모바일, REACT.JS, NEXT.JS, Styled-components, Javascript, TypeScript, SASS, GIT"
         },
         {
           "name": "하나은행 마이브런치 운영",
@@ -49,7 +49,7 @@
         {
           "name": "신한카드 플레이 운영 및 스크립트 운영 가이드 구축",
           "position": "퍼블리셔 ",
-          "skill": "모바일, Javascript"
+          "skill": "모바일, VUE.JS, Javascript"
         },
         {
           "name": "신한카드 지역화폐 운영",
