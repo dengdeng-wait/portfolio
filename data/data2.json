@@ -2,18 +2,7 @@
   "portfolio": [
     {
       "id": 2025,
-      "years": "2025",
-      "titles": [
-        {
-          "name": "하나은행 아이부자 운영",
-          "position": "PM 및 퍼블리셔 PL",
-          "skill": "모바일, REACT.JS, NEXT.JS, Styled-components, Javascript, TypeScript, SASS, GIT"
-        }
-      ]
-    },
-    {
-      "id": 2024,
-      "years": "2024",
+      "years": "2025~2024",
       "titles": [
         {
           "name": "하나은행 아이부자 운영",
